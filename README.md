@@ -1,5 +1,6 @@
 # Parallel Implementation of CNN on all major platforms
 This task is in progress, right now these are the platform implementations of CNN. All implementations force GPU presence. So make sure that all platforms are GPU enabled
+
 1. Tensorflow
 2. Keras - Tensorflow backend
 3. Keras - Theano backend 
