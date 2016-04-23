@@ -5,8 +5,8 @@
     Competition: https://www.kaggle.com/c/digit-recognizer
     Affiliation: University of Texas at Austin - MS Computer Science Student
     Type: Script to pool all the libraries for the final implementation
-    Run Instructions: python theanoscript.py
-    Backend: Theano (trying to use this for GPU implementation as Tensorflow doesn't support GPU yet)
+    Run Instructions: python tensorscript.py
+    Backend: Tensorflow (Multicore CPU implementation - NO GPUT Support)
     Data: in /data directory
     Results: in /results directory
     Algorithms: in /lib directory
@@ -22,16 +22,15 @@
 
 '''
 import os
-os.environ["THEANO_FLAGS"] = "mode=FAST_RUN,device=gpu,floatX=float32"
-os.environ["KERAS_BACKEND"]="theano"
+os.environ["KERAS_BACKEND"]="tensorflow"
 import numpy as np
 import pandas as pd
-from algorithms.cnn import CNNclassifier
-from algorithms.dataloader import Handler
+from algorithms.keras.dataloader import Handler
+from algorithms.keras.cnn import CNNclassifier
 
 train_path = 'data/train.csv'
 test_path = 'data/test.csv'
-out_path = 'results/cnn2d_3layer_fullconnected_3layer.csv'
+out_path = 'results/cnn2d_3layer_fullconnected_3layer_tf.csv'
 # Get the features
 data_handler = Handler(train_path, test_path)
 data_handler.process_data()
